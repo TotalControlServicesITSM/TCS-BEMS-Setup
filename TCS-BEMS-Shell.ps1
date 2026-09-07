@@ -196,7 +196,8 @@ Write-Host "Enabling Remote Desktop Services"
     Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
 # Remove default Windows Bloatware Pre-installed Apps 
-Write-Host "Removing Bloatware"
+Write-Host "Removing Bloatware..."
+    $ResultText.text = "Removing Bloatware..."
 $Bloatware = @(
 # Add sponsored/featured apps to remove in the "*AppName*" format
     "*EclipseManager*"
@@ -214,7 +215,7 @@ $Bloatware = @(
     "*Royal Revolt*"
     "*Sway*"
     "*Speed Test*"
-    "SpeedTest*"
+    "*SpeedTest*"
     "*Viber*"
     "*ACGMediaPlayer*"
     "*Netflix*"
@@ -228,14 +229,18 @@ $Bloatware = @(
     "*TikTok*"
     "*Whatsapp*"
     "*WhatsApp*"
-    "SpotifyAB.SpotifyMusic"
-    "Disney.37853FC22B2CE"
+    "*SpotifyAB*"
     "*Spotify*"
     "*Minecraft*"
-    "*Royal Revolt*"
-    "*Sway*"
-    "*Speed Test*"
     "*Disney*"
+    "MirametrixInc.GlancebyMirametrix"
+    "RealtimeboardInc.RealtimeBoard"
+    "SpotifyAB.SpotifyMusic"
+    "5A894077.McAfeeSecurity"
+    "5A894077.McAfeeSecurity_2.1.27.0_x64__wafk5atnkzcwy"
+    "Adobe Creative Cloud All Apps 2-month membership"
+    "McAfeeWPSSparsePackage_0j6k21vdgrmfw"
+    "Slack*"
 )
     foreach ($Bloat in $Bloatware) {
         Get-AppxPackage -Name $Bloat| Remove-AppxPackage
@@ -244,8 +249,8 @@ $Bloatware = @(
         $ResultText.text = "Trying to remove $Bloat..."
     }
 
-Write-Host "Cleanup complete! Please wait..."
-    $ResultText.text = "Cleanup complete! Please wait..."
+Write-Host "Operations complete! Please wait..."
+    $ResultText.text = "Operations complete! Please wait..."
 
 # Pause to init
 Start-Sleep -Seconds 2
